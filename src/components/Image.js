@@ -1,15 +1,20 @@
 import { format } from "date-fns"
+import { useState, useEffect } from "react";
+
 
 export default function Image({ id, urls, user, created_at, likes }) {
   return (
     <>
       <div className=" rounded-lg shadow-md bg-white">
         <article key={id} className="rounded-lg">
-          <img
-            src={urls.regular}
-            alt={user.username}
-            className="h-52 object-fit object-cover w-full lg:h-80 rounded-lg"
-          />
+          <a href={`../image`}>
+            
+            <img
+              src={urls.regular}
+              alt={user.username}
+              className="h-52 object-fit object-cover w-full lg:h-80 rounded-lg"
+            />
+          </a>
           
             {/* Hidden Section with Author info */}
           <div className="hidden p-5 pb-0 flex-col md:flex-row items-start md:items-center justify-between">
