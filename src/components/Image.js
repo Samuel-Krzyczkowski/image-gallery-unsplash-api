@@ -7,7 +7,7 @@ export default function Image({ id, urls, user, created_at, likes }) {
     <>
       <div className=" rounded-lg shadow-md bg-white">
         <article key={id} className="rounded-lg">
-          <a href={`../image`}>
+          <a className="hover:cursor-zoom-in ">
             
             <img
               src={urls.regular}

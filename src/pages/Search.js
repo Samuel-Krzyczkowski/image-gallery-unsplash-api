@@ -12,13 +12,15 @@ export default function GetImages() {
     const [totalImages, setTotalImages] = useState();
     
     useEffect(() => {
+        const defaultQuery = "architecture"
         const fetchImages = async () => {
-            const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=architecture`)
-            const data = await response.json()
-            console.log(data.results)
-            setImages(data.results)
+            const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=${defaultQuery}`)
+            const data = await response.json();
+            console.log(data.results);
+            setImages(data.results);
             setTotalPages(data.total_pages);
             setTotalImages(data.total);
+            setCurrentQuery(defaultQuery);
             
         }
         fetchImages();
@@ -27,10 +29,10 @@ export default function GetImages() {
     function getResponse(query) {
       const fetchImages = async () => {
         const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=${query}`)
-        const data = await response.json()
-        console.log(data.results)
-        setCurrentQuery(query)
-        setImages(data.results)
+        const data = await response.json();
+        console.log(data.results);
+        setCurrentQuery(query);
+        setImages(data.results);
     }
     fetchImages();
     }
@@ -43,7 +45,7 @@ export default function GetImages() {
         const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}${request}`)
         const data = await response.json()
         setCurrentPage(page);
-        setImages(data.results)
+        setImages(data.results);
     }
     fetchImages();
   
@@ -64,7 +66,7 @@ export default function GetImages() {
                 {images.map((image) => (
                   <Link to={{
                     pathname: `/image/${image.id}`,
-                    state: {"somekey": "somevalue"}
+                    
                   }} className="bg-transparent text-white">
                     <Image key={image} {...image} />
                   </Link>

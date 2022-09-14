@@ -18,8 +18,6 @@ export default function App() {
           </Routes>
         </Header>
       </BrowserRouter>
-
-      
     </>
   )
 }
