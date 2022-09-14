@@ -1,17 +1,18 @@
 import { format } from "date-fns"
 
-export default function Article({ id, urls, user, created_at, likes }) {
+export default function Image({ id, urls, user, created_at, likes }) {
   return (
     <>
-      <div className="p-5 rounded-3xl shadow-md bg-white">
-        <article key={id} className="rounded-3xl">
+      <div className=" rounded-lg shadow-md bg-white">
+        <article key={id} className="rounded-lg">
           <img
             src={urls.regular}
             alt={user.username}
-            className="h-52 object-fit object-cover w-full lg:h-80 rounded-3xl"
+            className="h-52 object-fit object-cover w-full lg:h-80 rounded-lg"
           />
-
-          <div className="p-5 pb-0 flex flex-col md:flex-row items-start md:items-center justify-between">
+          
+            {/* Hidden Section with Author info */}
+          <div className="hidden p-5 pb-0 flex-col md:flex-row items-start md:items-center justify-between">
             <article className="flex items-center justify-start">
               <img
                 src={user.profile_image.medium}
