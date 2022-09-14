@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Image from "../components/Image";
-import SearchBar from "../components/SearchBar"
+import Pagination from "../components/Pagination";
+import SearchBar from "../components/SearchBar";
+
 export default function GetImages() {
     const [images, setImages] = useState([]);
+    const [currentQuery, setCurrentQuery] = useState("cat");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState();
+    const [totalImages, setTotalImages] = useState();
     
     useEffect(() => {
         const fetchImages = async () => {
@@ -11,6 +17,9 @@ export default function GetImages() {
             const data = await response.json()
             console.log(data.results)
             setImages(data.results)
+            setTotalPages(data.total_pages);
+            setTotalImages(data.total);
+            
         }
         fetchImages();
     }, [])
@@ -20,20 +29,32 @@ export default function GetImages() {
         const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=${query}`)
         const data = await response.json()
         console.log(data.results)
+        setCurrentQuery(query)
         setImages(data.results)
     }
     fetchImages();
+    }
+
+    function getPage(page) {
+      
+      let request = `&page=${page}&query=${currentQuery}`
+
+      const fetchImages = async () => {
+        const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}${request}`)
+        const data = await response.json()
+        setCurrentPage(page);
+        setImages(data.results)
+    }
+    fetchImages();
+  
     }
 
     return (
       <>
         <>
         <SearchBar getResponse={getResponse}/>
+        <Pagination getPage={getPage} current={currentPage} total_pages={totalPages} total={totalImages} />
           <div className="container mx-auto px-5 2xl:px-0">
-            <h1 className="text-slate-800 font-bold text-3xl md:text-4xl lg:text-6xl my-10 lg:mt-20 lg:mb-14">
-              Search
-            </h1>
-
             {!images ? (
               <div>
                 <h1>Loading...</h1>
@@ -52,6 +73,8 @@ export default function GetImages() {
               </section>
             )}
           </div>
+          <Pagination getPage={getPage} current={currentPage} total_pages={totalPages} total={totalImages} />
+
         </>
       </>
     );
