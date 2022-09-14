@@ -20,7 +20,7 @@ export default function Header(props) {
     <>
       <Disclosure
         as="nav"
-        className="bg-white drop-shadow-xl"
+        className="bg-white"
       >
         {({ open }) => (
           <>
@@ -99,7 +99,7 @@ export default function Header(props) {
         )}
       </Disclosure>
       <div className="bg-white">
-        <div className="min-h-screen p-3 max-w-7xl mx-auto">
+        <div className="">
           {props.children}
         </div>
       </div>

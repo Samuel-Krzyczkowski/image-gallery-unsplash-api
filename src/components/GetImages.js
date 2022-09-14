@@ -19,7 +19,7 @@ export default function GetImages() {
       <>
         <>
           <div className="container mx-auto px-5 2xl:px-0">
-            <h1 className="text-slate-800 font-bold text-3xl md:text-4xl lg:text-6xl my-10 lg:mt-20 lg:mb-14">
+            <h1 className="text-slate-800 text-center font-bold py-5 text-3xl md:text-4xl lg:text-4xl">
               Recommended
             </h1>
 

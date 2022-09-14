@@ -13,7 +13,7 @@ export default function GetImages() {
     
     useEffect(() => {
         const fetchImages = async () => {
-            const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=cat`)
+            const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=architecture`)
             const data = await response.json()
             console.log(data.results)
             setImages(data.results)
