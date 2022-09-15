@@ -1,1 +1,1 @@
-# image-gallery-unsplash-api
+# Image Gallery with Unsplash API
