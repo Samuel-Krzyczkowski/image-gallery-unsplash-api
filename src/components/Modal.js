@@ -1,3 +1,5 @@
+// src/components/Modal.js
+
 import React from "react";
 import { useEffect, useState } from "react";
 
@@ -26,7 +28,7 @@ export default function Modal(props) {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*body*/}
                 <div className="">
-                  <img className="max-w-screen" src={props.images.urls.regular} />
+                  <img className="max-h-screen" src={props.images.urls.regular} />
                 </div>
               </div>
             </div>

@@ -1,16 +1,23 @@
 // src/components/SearchBar.js
 
 import React, { useState } from "react";
+import SelectMenu from "./SelectMenu";
+
 
 export default function SearchBar(props) {
-  const [query, setQuery] = useState(props.query);
+  const [query, setQuery] = useState();
+  const [sort, setSort] = useState();
+
+  function sendSort(sort) {
+    setSort(sort);
+  }
 
   return (
     <form
-      className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
+      className="mx-auto items-center max-w-7xl px-2 sm:px-6 lg:px-8 flex"
       onSubmit={(e) => {
         e.preventDefault();
-        props.getResponse(query);
+        props.getResponse(query, sort);
       }}
     >
       <label
@@ -19,7 +26,7 @@ export default function SearchBar(props) {
       >
         Search
       </label>
-      <div className="relative">
+      <div className="relative w-full">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <svg
             aria-hidden="true"
@@ -41,7 +48,7 @@ export default function SearchBar(props) {
           type="search"
           id="default-search"
           className="block p-4 pl-10 w-full text-sm text-gray-900 bg-white shadow-lg rounded-lg"
-          placeholder="Search..."
+          placeholder={"Search for photos... eg. ".concat(props.current)}
           onChange={(e) => {
             setQuery(e.target.value);
           }}
@@ -54,6 +61,7 @@ export default function SearchBar(props) {
           Search
         </button>
       </div>
+      <div className="mx-10 w-48"><SelectMenu sendSort={sendSort} /></div>
     </form>
   );
 }

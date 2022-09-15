@@ -6,9 +6,11 @@ import Image from "../components/Image";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
 
+
 export default function GetImages() {
     const [images, setImages] = useState([]);
-    const [currentQuery, setCurrentQuery] = useState("cat");
+    const [currentQuery, setCurrentQuery] = useState();
+    const [currentSort, setCurrentSort] = useState();
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState();
     const [totalImages, setTotalImages] = useState();
@@ -16,7 +18,8 @@ export default function GetImages() {
 
     useEffect(() => {
       // Fetch photos with default query and add to images
-        const defaultQuery = "architecture"
+        const defaultQuery = "Architecture"
+        const defaultSort = "relevant"
         const fetchImages = async () => {
             const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=${defaultQuery}`)
             const data = await response.json();
@@ -24,18 +27,20 @@ export default function GetImages() {
             setTotalPages(data.total_pages);
             setTotalImages(data.total);
             setCurrentQuery(defaultQuery);
-            
+            setCurrentSort(defaultSort);
         }
         fetchImages();
     }, [])
 
-    function getResponse(query) {
+    function getResponse(query, sort="relevant") {
       // Fetch photos with query passed from SearchBar and add to images
       const fetchImages = async () => {
-        const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=${query}`)
+        const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=${query}&order_by=${sort.toLowerCase()}`)
         const data = await response.json();
         setCurrentQuery(query);
+        setCurrentSort(sort);
         setImages(data.results);
+        
     }
     fetchImages();
     }
@@ -57,7 +62,7 @@ export default function GetImages() {
     return (
       <>
         <>
-        <SearchBar getResponse={getResponse}/>
+        <SearchBar getResponse={getResponse} current={currentQuery}/>
         <Pagination getPage={getPage} current={currentPage} total_pages={totalPages} total={totalImages} />
           <div className="container flex justify-center mx-auto 2xl:px-0 max-w-7xl">
             {!images ? (

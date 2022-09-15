@@ -30,7 +30,6 @@ export default function ImageDetailed() {
   return (
     <>
       <div className="mx-auto max-w-7xl lg:px-8">
-          
         {!images ? ( 
           <div>
             <h1>Loading...</h1>   
