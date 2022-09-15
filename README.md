@@ -11,7 +11,6 @@ The app comes with the following functionality:
   - [x] Pagination  
   - [x] Link to ImageDetailed view  
   - [ ] Filters - by *color*, *orentation*, *sensitive content* 
-  
 - [x] ImageDetailed view:
   - [x] Specific image page with details:
     - [x] Header - Author Image + Profile Link, Author username, Instagram username(if any) + Social Page Link(if any)
@@ -19,7 +18,7 @@ The app comes with the following functionality:
     - [x] Modal - Fullscreen Image View
     - [x] Image Details - Downloads, Views, Date Published
   - [x] Autogenerate page link
-
+- [x] Footer
 ## Tools
 
 - JavaScript
