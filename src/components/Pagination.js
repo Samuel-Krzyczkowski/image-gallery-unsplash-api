@@ -1,5 +1,6 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+// src/components/Pagination.js
 
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
 export default function Pagination(props) {
     let total = props.total

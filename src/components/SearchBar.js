@@ -1,18 +1,20 @@
+// src/components/SearchBar.js
+
 import React, { useState } from "react";
 
 export default function SearchBar(props) {
-    const [query, setQuery] = useState(props.query);
+  const [query, setQuery] = useState(props.query);
 
   return (
-    <form className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8" onSubmit={(e) => {
+    <form
+      className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
+      onSubmit={(e) => {
         e.preventDefault();
-        props.getResponse(query)
-
-    }
-
-    } >
+        props.getResponse(query);
+      }}
+    >
       <label
-        for="default-search"
+        htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only "
       >
         Search
@@ -28,9 +30,9 @@ export default function SearchBar(props) {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             ></path>
           </svg>
@@ -47,7 +49,6 @@ export default function SearchBar(props) {
         />
         <button
           type="submit"
-          
           className="text-white absolute right-2.5 bottom-2.5 bg-gray-700 hover:bg-gray-900 font-medium rounded-lg text-sm px-4 py-2 "
         >
           Search

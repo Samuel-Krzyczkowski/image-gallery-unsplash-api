@@ -1,19 +1,19 @@
-/*This is the Header/Navbar component. */
+// src/components/Header.js
 
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
-/* Pages */ 
+// Page Links
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Search", href: "/search" },
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+// function classNames(...classes) {
+//   return classes.filter(Boolean).join(" ");
+// }
 
 export default function Header(props) {
   return (
@@ -28,6 +28,7 @@ export default function Header(props) {
               <div className="relative flex h-14 items-center justify-between">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
+
                   <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
@@ -36,8 +37,10 @@ export default function Header(props) {
                       <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                     )}
                   </Disclosure.Button>
+                  {/* End of mobile menu button*/}
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start ">
+                  {/* Unsplash logo */}
                   <div className="flex flex-shrink-0 items-center">
                     <a href="/">
                       <img
@@ -53,9 +56,10 @@ export default function Header(props) {
                       alt="Your Company"
                       />
                     </a>
-                  
-                  
+                    {/* End of Unsplash logo */}
                   </div>
+
+                  {/* Mobile menu */}
                   <div className="hidden sm:ml-6 sm:block ">
                     <div className="flex space-x-4">
                       {navigation.map((item) => (
@@ -76,10 +80,12 @@ export default function Header(props) {
                       ))}
                     </div>
                   </div>
+                  {/* End of Mobile menu */}
                 </div>
               </div>
             </div>
 
+            {/* Menu */}              
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pt-2 pb-3">
                 {navigation.map((item) => (
@@ -100,6 +106,7 @@ export default function Header(props) {
                 ))}
               </div>
             </Disclosure.Panel>
+            {/* End of Menu */} 
           </>
         )}
       </Disclosure>

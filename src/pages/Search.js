@@ -1,3 +1,5 @@
+// /src/pages/Search.js
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Image from "../components/Image";
@@ -11,12 +13,13 @@ export default function GetImages() {
     const [totalPages, setTotalPages] = useState();
     const [totalImages, setTotalImages] = useState();
     
+
     useEffect(() => {
+      // Fetch photos with default query and add to images
         const defaultQuery = "architecture"
         const fetchImages = async () => {
             const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=${defaultQuery}`)
             const data = await response.json();
-            console.log(data.results);
             setImages(data.results);
             setTotalPages(data.total_pages);
             setTotalImages(data.total);
@@ -27,10 +30,10 @@ export default function GetImages() {
     }, [])
 
     function getResponse(query) {
+      // Fetch photos with query passed from SearchBar and add to images
       const fetchImages = async () => {
         const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}&query=${query}`)
         const data = await response.json();
-        console.log(data.results);
         setCurrentQuery(query);
         setImages(data.results);
     }
@@ -38,7 +41,7 @@ export default function GetImages() {
     }
 
     function getPage(page) {
-      
+      // Fetch photos from a different page with page passed from Pagination and add to images
       let request = `&page=${page}&query=${currentQuery}`
 
       const fetchImages = async () => {
@@ -50,7 +53,7 @@ export default function GetImages() {
     fetchImages();
   
     }
-
+    
     return (
       <>
         <>
@@ -64,11 +67,12 @@ export default function GetImages() {
             ) : (
               <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 pb-20 lg:container">
                 {images.map((image) => (
-                  <Link to={{
+                  <Link key={image.id} to={{
                     pathname: `/image/${image.id}`,
                     
                   }} className="bg-transparent text-white">
-                    <Image key={image} {...image} />
+                    <Image key={image.id} {...image} />
+                    
                   </Link>
                   
                 ))}

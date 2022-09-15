@@ -1,3 +1,5 @@
+// /src/pages/ImageDetailed.js
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns"
@@ -6,7 +8,9 @@ export default function ImageDetailed() {
   const [images, setImages] = useState();
   let param = useParams();
 
+  
   useEffect(() => {
+    // Fetch specific photo by id and add to images
     const fetchImage = async () => {
       const response = await fetch(
         `https://api.unsplash.com/photos/${param.id}?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`
@@ -17,16 +21,17 @@ export default function ImageDetailed() {
     fetchImage();
   }, []);
 
-  console.log(images)
   return (
     <>
       <div className="mx-auto max-w-7xl lg:px-8">
-        {!images ? (
+          
+        {!images ? ( 
           <div>
-            <h1>Loading...</h1>
+            <h1>Loading...</h1>   
           </div>
         ) : (
-          <section className="">
+          <section>
+            {/* Header part - user info + download button */}
             <div className="flex justify-between items-center bg-white max-h-16 h-16 w-full">
               <div className="px-2 md:px-4 flex justify-center items-center">
                 <div className="pr-2">
@@ -48,7 +53,7 @@ export default function ImageDetailed() {
               </div>
               <div className="pr-2">
                 <a href={images.links.download} target="_blank">
-                  <div class="flex space-x-2 justify-center">
+                  <div className="flex space-x-2 justify-center">
                     <div>
                       <button
                         type="button"
@@ -75,8 +80,10 @@ export default function ImageDetailed() {
                   </div>
                 </a>
               </div>
-              {/* <img src={images.urls.regular} /> */}
             </div>
+            {/* End of header part */}
+
+            {/* Image view part */}
             <div className="flex justify-center">
               <div className="bg-white flex justify-center items-center p-3">
                 <img
@@ -85,6 +92,9 @@ export default function ImageDetailed() {
                 />
               </div>
             </div>
+            {/* End of image view part */}
+
+            {/* Image Details part */}
             <div className="flex justify-center">
               <div className=" bg-white w-full flex items-center">
                 <div className="flex justify-around items-center h-24">
@@ -103,6 +113,7 @@ export default function ImageDetailed() {
                 </div>
               </div>
             </div>
+            {/* End of Image Details part */}
           </section>
         )}
       </div>
