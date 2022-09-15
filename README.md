@@ -1,6 +1,6 @@
 # Image Library with Unsplash API  
 
-This app mimics [Unsplash.com](https://unsplash.com/)  
+This app mimics [unsplash.com](https://unsplash.com/)  
 It uses their API to get images and displays them in a grid  
 The app comes with the following functionality:  
 - [x] Basic grid with recommended images  
