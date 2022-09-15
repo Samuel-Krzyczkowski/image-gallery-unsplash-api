@@ -7,8 +7,12 @@ export default function Footer() {
     <>
       <footer className="text-center text-white">
         <div className=" pt-9 pb-3 border-t-2 border-gray-100">
-          <div className="flex justify-center "> 
-            <a href="https://www.linkedin.com/in/samuel-krzyczkowski/" target="_blank" className="mr-9 text-gray-800">
+          <div className="flex justify-center ">
+            <a
+              href="https://www.linkedin.com/in/samuel-krzyczkowski/"
+              target="_blank"
+              className="mr-9 text-gray-800"
+            >
               <svg
                 aria-hidden="true"
                 focusable="false"
@@ -25,7 +29,11 @@ export default function Footer() {
                 ></path>
               </svg>
             </a>
-            <a href="https://github.com/Samuel-Krzyczkowski" target="_blank" className="text-gray-800">
+            <a
+              href="https://github.com/Samuel-Krzyczkowski"
+              target="_blank"
+              className="text-gray-800"
+            >
               <svg
                 aria-hidden="true"
                 focusable="false"
@@ -45,12 +53,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div
-          className="text-center text-gray-700 p-4 font-thin"
-          
-        >
+        <div className="text-center text-gray-700 p-4 font-thin">
           © {format(new Date(), "yyyy")} Copyright: Samuel Krzyczkowski
-          
         </div>
       </footer>
     </>

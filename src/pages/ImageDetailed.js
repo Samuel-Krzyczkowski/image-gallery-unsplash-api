@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns"
+import Modal from "../components/Modal";
 
 export default function ImageDetailed() {
   const [images, setImages] = useState();
+  const [isOpen, setIsOpen] = useState(false);
   let param = useParams();
 
   
@@ -20,6 +22,10 @@ export default function ImageDetailed() {
     };
     fetchImage();
   }, []);
+
+  function handleClose () {
+    setIsOpen(false);
+  }
 
   return (
     <>
@@ -87,9 +93,11 @@ export default function ImageDetailed() {
             <div className="flex justify-center">
               <div className="bg-white flex justify-center items-center p-3">
                 <img
-                  className="max-h-[700px] max-w-full"
+                  className="max-h-[700px] max-w-full hover:cursor-zoom-in"
                   src={images.urls.regular}
+                  onClick={() => {setIsOpen(true)}}
                 />
+                <Modal isOpen={isOpen} handleClose={handleClose} images={images} />
               </div>
             </div>
             {/* End of image view part */}
