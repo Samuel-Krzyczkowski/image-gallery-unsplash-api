@@ -4,6 +4,7 @@ import Error from './components/Error';
 import Header from './components/Header';
 import ImageDetailed from "./pages/ImageDetailed";
 import Search from './pages/Search'
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
             <Route path="*" element={<Error />} />
             <Route path="/search" element={<Search />} />
           </Routes>
+          <Footer />
         </Header>
       </BrowserRouter>
     </>

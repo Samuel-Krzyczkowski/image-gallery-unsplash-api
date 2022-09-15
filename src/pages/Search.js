@@ -59,13 +59,13 @@ export default function GetImages() {
         <>
         <SearchBar getResponse={getResponse}/>
         <Pagination getPage={getPage} current={currentPage} total_pages={totalPages} total={totalImages} />
-          <div className="container flex justify-center mx-auto 2xl:px-0 max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="container flex justify-center mx-auto 2xl:px-0 max-w-7xl">
             {!images ? (
               <div>
                 <h1>Loading...</h1>
               </div>
             ) : (
-              <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 pb-20 lg:container">
+              <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 pb-20 container">
                 {images.map((image) => (
                   <Link key={image.id} to={{
                     pathname: `/image/${image.id}`,
