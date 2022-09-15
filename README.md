@@ -50,8 +50,10 @@ npm install
 
 ## Create .env file and put your API Key inside
 
+
 ```
-REACT_APP_UNSPLASH_API_KEY= // your key here
+// /.env
+REACT_APP_UNSPLASH_API_KEY= <=== Your Key Here
 ```
 
 ## Run Server
