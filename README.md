@@ -48,6 +48,12 @@ cd image-gallery-unsplash-api
 npm install
 ```
 
+## Create .env file and put your API Key inside
+
+```
+REACT_APP_UNSPLASH_API_KEY= // your key here
+```
+
 ## Run Server
 
 ```
