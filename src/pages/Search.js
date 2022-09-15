@@ -56,7 +56,7 @@ export default function GetImages() {
         <>
         <SearchBar getResponse={getResponse}/>
         <Pagination getPage={getPage} current={currentPage} total_pages={totalPages} total={totalImages} />
-          <div className="container mx-auto px-5 2xl:px-0">
+          <div className="container flex justify-center mx-auto 2xl:px-0 max-w-7xl px-2 sm:px-6 lg:px-8">
             {!images ? (
               <div>
                 <h1>Loading...</h1>

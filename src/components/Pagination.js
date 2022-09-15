@@ -7,7 +7,7 @@ export default function Pagination(props) {
     let current_page = props.current
 
   return (
-    <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+    <div className="flex items-center justify-between border-y my-5 border-gray-200 bg-white py-3 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div className="flex flex-1 justify-between sm:hidden">
         <div
           onClick={(e) => {

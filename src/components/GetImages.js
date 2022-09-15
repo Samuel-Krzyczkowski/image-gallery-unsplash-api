@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ImageDetailed from "../pages/ImageDetailed";
 import Image from "./Image";
-import Modal from "./Modal/Modal"
+
 
 export default function GetImages() {
     const [images, setImages] = useState([]);
@@ -33,18 +33,12 @@ export default function GetImages() {
             ) : (
               <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 pb-20 lg:container">
                 {images.map((image) => (
-                  // <Link to={{
-                  //   pathname: `/image/${image.id}`,
-                    
-                  // }} className="bg-transparent text-white">
-                  //   <Image key={image} {...image} />
-                  // </Link>
                   <div onClick={() => setIsOpen(true)}>
-                    <Image key={image} {...image} />
-                    <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen} children={<Link to={{pathname: `/image/${image.id}`}}>
-                      <img className="h-32" src={image.urls.regular} />
-
-                      </Link>}></Modal>
+                     <Link to={{
+                       pathname: `/image/${image.id}`,
+                     }} className="bg-transparent text-white">
+                       <Image key={image} {...image}/>
+                     </Link>
                   </div>
                   
                 ))}

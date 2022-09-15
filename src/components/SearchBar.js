@@ -4,7 +4,7 @@ export default function SearchBar(props) {
     const [query, setQuery] = useState(props.query);
 
   return (
-    <form onSubmit={(e) => {
+    <form className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8" onSubmit={(e) => {
         e.preventDefault();
         props.getResponse(query)
 

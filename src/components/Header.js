@@ -39,16 +39,21 @@ export default function Header(props) {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start ">
                   <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-8 w-auto lg:hidden"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_Unsplash.svg/1024px-Logo_of_Unsplash.svg.png"
-                    alt="Your Company"
-                  />
-                  <img
-                    className="hidden h-8 w-auto lg:block"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_Unsplash.svg/1024px-Logo_of_Unsplash.svg.png"
-                    alt="Your Company"
-                  />
+                    <a href="/">
+                      <img
+                        className="block h-8 w-auto lg:hidden"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_Unsplash.svg/1024px-Logo_of_Unsplash.svg.png"
+                        alt="Your Company"
+                      />
+                    </a>
+                    <a href="/">
+                      <img
+                      className="hidden h-8 w-auto lg:block"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_Unsplash.svg/1024px-Logo_of_Unsplash.svg.png"
+                      alt="Your Company"
+                      />
+                    </a>
+                  
                   
                   </div>
                   <div className="hidden sm:ml-6 sm:block ">
